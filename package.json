@@ -2,9 +2,11 @@
   "name": "cercas-humaya",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --progress --config webpack.config.build.js",
-    "development": "webpack serve --progress --config webpack.config.development.js",
-    "start": "npm run development"
+    "backend:build": "node app.js",
+    "backend:development": "nodemon app.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.js",
+    "frontend:development": "webpack serve --progress --config webpack.config.development.js",
+    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
   },
   "author": "Jose Armando Felix",
   "devDependencies": {
@@ -34,5 +36,14 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@prismicio/client": "^5.1.0",
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "prismic-dom": "^2.2.7",
+    "pug": "^3.0.2"
   }
 }
