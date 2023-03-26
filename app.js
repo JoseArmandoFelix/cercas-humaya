@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
             const { results } = response
             const [ homepage, meta ] = results
 
-            console.log(homepage, meta)
+            //console.log(homepage.data.body)
 
             res.render('index', { homepage, meta })
         })

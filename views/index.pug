@@ -38,8 +38,61 @@ html(lang="en")
   
   body
     include ./partials/navigation
-    include ./partials/hero
-    include ./partials/history 
-    include ./partials/services
-    include ./partials/callout
-    include ./partials/contact
+
+    .home
+      .home__wrapper
+
+      each section in homepage.data.body
+        if section.slice_type == 'hero'
+          section.home__hero
+            .home__hero__wrapper
+              .hone__hero__left
+                p.home__hero__subtitle=section.primary.sub_title
+                h1.home__hero__title=section.primary.title
+              .home__hero__right
+                figure.home__hero__media
+                  img.home__hero__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+
+        if section.slice_type == 'history'
+          section.home__history
+            .home__history__wrapper
+              .home__history__copy!=PrismicDOM.RichText.asHtml(section.primary.copy)
+
+              each media in section.items
+                figure.home__history__media
+                img.home__history__media__image(alt=media.image.alt src=media.image.url)
+
+        if section.slice_type == 'services'
+          section.home__services
+            .home__services__wrapper
+              h3.home__services__title=section.primary.title
+              each service in section.items
+                h2.home__services__name=service.name
+
+        if section.slice_type == 'callout'
+          section.home__callout
+            .home__callout__wrapper 
+              h1.home__callout_title=section.primary.title
+              figure.home__callout_media 
+                img.home__callout__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+
+        if section.slice_type == 'contact'
+          section.home__contact
+            .home__contact__wrapper
+              .home__contact__address
+                h4.home__contact__address__title=section.primary.address_title
+                a.home__contact__address__link(href=section.primary.google_maps_page.url target='_blank')=section.primary.address
+                  svg.home__contact__address__icon
+              .home__contact__message
+                a.home__contact__mail__link(href='https://www.gmail.com' target='_blank')=section.primary.mail
+                  svg.home__contact__mail__icon
+                a.home__contact__phone__link(href=section.primary.whatsapp.url target='_blank')=section.primary.phone
+                  svg.home__contact__phone__icon
+              .home__contact__social
+                p.home__contact__social__name Cercas Humaya 2023
+                .home__contact__social_icons__wrapper
+                  svg.home__contact__twitter__icon
+                  svg.home__contact__facebook__icon
+                  svg.home__contact__instagram__icon
+              
+
