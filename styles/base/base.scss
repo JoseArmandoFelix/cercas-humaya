@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(100vw / 1280 * 10)
+}
+
+body {
+    @extend %body-20;
+
+    // @include media('<phone') {
+    //     font-size: 100px;
+    // }
+}
+
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}

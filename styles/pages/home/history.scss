@@ -1,0 +1,28 @@
+.home__history {
+    height: 100vh;
+    width: 100%;
+}
+
+.home__history__wrapper {
+    height: 100%;
+    width: 100%;
+    @extend %center;
+}
+
+.home__history__copy {
+    position: absolute;
+    width: 40.7rem;
+    line-height: 150%;
+    z-index: 1;
+}
+
+.home__history__media {
+    width: 80%;
+    height: 100%;
+    position: relative;
+}
+
+.home__history__media__image {
+    @extend %cover;
+    object-fit: cover;
+}

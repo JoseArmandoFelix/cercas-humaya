@@ -5,6 +5,8 @@ const app = express()
 const port = 3000
 const path = require('path')
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 const Prismic = require('@prismicio/client')
 const PrismicDOM = require('prismic-dom')
 
@@ -34,18 +36,11 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 app.get('/', async (req, res) => {
-    initApi(req).then(api => {
-        api.query(
-            Prismic.Predicates.any('document.type', ['homepage', 'meta'])
-        ).then(response => {
-            const { results } = response
-            const [ homepage, meta ] = results
+    const api = await initApi(req)
+    const homepage = await api.getSingle('homepage')
+    const meta = await api.getSingle('meta')
 
-            //console.log(homepage.data.body)
-
-            res.render('index', { homepage, meta })
-        })
-    })
+    res.render('index', { homepage, meta })
 })
 
 app.listen(port, () => {

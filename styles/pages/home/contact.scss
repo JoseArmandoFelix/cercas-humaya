@@ -1,0 +1,112 @@
+.home__contact {
+    height: 45.8rem;
+    width: 100%;
+    background: $color-scorpion;
+    padding: 8rem 5rem;
+    color: $color-white;
+}
+
+.home__contact__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+}
+
+.home__contact__address  {
+    max-width: 28rem;
+}
+
+.home__contact__address__title {
+    @extend %title-32;
+    margin-bottom: 1rem
+}
+
+.home__contact__address__link:hover {
+    text-decoration: underline;
+}
+
+.home__contact__address_text {
+    margin-right: 2rem;
+    line-height: 130%;
+}
+
+.home__contact__address__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.home__contact__message {
+    max-width: 30rem;
+}
+
+.home__contact__whatsapp__link {
+
+}
+
+.home__contact__whatsapp__button {
+
+}
+
+.home__contact__mail__link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.home__contact__mail__link:hover {
+    text-decoration: underline;
+}
+
+.home__contact__mail__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.home__contact__mail__text {
+    margin-left: 1rem;
+}
+
+.home__contact__phone__link {
+    display: flex;
+    align-items: center;
+}
+
+.home__contact__phone__link:hover {
+    text-decoration: underline;
+}
+
+.home__contact__phone__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.home__contact__phone__text {
+    margin-left: 1rem;
+}
+
+.home__contact__social {
+    max-width: 28rem;
+    width: 28rem;
+}
+
+.home__contact__social__name {
+    @extend %caption-13;
+}
+
+.home__contact__social_icons__wrapper {
+
+}
+
+.home__contact__twitter__icon {
+
+}
+
+.home__contact__facebook__icon {
+
+}
+
+.home__contact__instagram__icon {
+
+}

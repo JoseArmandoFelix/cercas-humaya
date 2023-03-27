@@ -1,0 +1,26 @@
+.home {
+    
+}
+
+.home__wrapper {
+    
+}
+
+.cta__mid {
+    @extend %body-16;
+
+    cursor: pointer;
+    background: $color-scorpion;
+    color: $color-white;
+    width: 18rem;
+    height: 4.5rem;
+    max-width: 18rem;
+    border: none;
+    border-radius: 2rem;
+}
+
+.cta__mid:hover {
+    background: $color-white;
+    color: $color-scorpion;
+    border: solid 3px $color-scorpion;;
+}

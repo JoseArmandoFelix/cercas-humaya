@@ -46,53 +46,67 @@ html(lang="en")
         if section.slice_type == 'hero'
           section.home__hero
             .home__hero__wrapper
-              .hone__hero__left
+              .home__hero__info
                 p.home__hero__subtitle=section.primary.sub_title
                 h1.home__hero__title=section.primary.title
-              .home__hero__right
-                figure.home__hero__media
-                  img.home__hero__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+                button.home__hero__cta.cta__mid(type='button' href='#contact__sec') Contacto
+              figure.home__hero__media
+                img.home__hero__media__image(alt=section.primary.image.alt src=section.primary.image.url)
 
         if section.slice_type == 'history'
-          section.home__history
+          section.home__history#history__sec
             .home__history__wrapper
               .home__history__copy!=PrismicDOM.RichText.asHtml(section.primary.copy)
 
-              each media in section.items
+              figure.home__history__media
+                img.home__history__media__image(alt='History images' src='../history-images.png')
+              //each media in section.items
                 figure.home__history__media
-                img.home__history__media__image(alt=media.image.alt src=media.image.url)
+                  img.home__history__media__image(alt=media.image.alt src=media.image.url)
 
         if section.slice_type == 'services'
-          section.home__services
+          section.home__services#services__sec
             .home__services__wrapper
               h3.home__services__title=section.primary.title
               each service in section.items
-                h2.home__services__name=service.name
+                a.home__services__link(href='#contact__sec')
+                  h2.home__services__name=service.name
 
         if section.slice_type == 'callout'
           section.home__callout
-            .home__callout__wrapper 
-              h1.home__callout_title=section.primary.title
-              figure.home__callout_media 
+            .home__callout__wrapper
+              .home__callout__info
+                h1.home__callout_title=section.primary.title
+                button.home__callout__cta.cta__mid(type='button' onclick='#contact__sec') Contacto
+              figure.home__callout_media
                 img.home__callout__media__image(alt=section.primary.image.alt src=section.primary.image.url)
 
         if section.slice_type == 'contact'
-          section.home__contact
+          section.home__contact#contact__sec
             .home__contact__wrapper
               .home__contact__address
                 h4.home__contact__address__title=section.primary.address_title
-                a.home__contact__address__link(href=section.primary.google_maps_page.url target='_blank')=section.primary.address
-                  svg.home__contact__address__icon
+                a.home__contact__address__link(href=section.primary.google_maps_page.url target='_blank')
+                  span.home__contact__address_text=section.primary.address
+                  svg.home__contact__address__icon(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                    path(d="M15 3H21V9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                    path(d="M10 14L21 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
               .home__contact__message
-                a.home__contact__mail__link(href='https://www.gmail.com' target='_blank')=section.primary.mail
-                  svg.home__contact__mail__icon
-                a.home__contact__phone__link(href=section.primary.whatsapp.url target='_blank')=section.primary.phone
-                  svg.home__contact__phone__icon
+                //a.home__contact__whatsapp__link(href=section.primary.whatsapp.url target='_blank')
+                  svg.home__contact__whatsapp__button
+                a.home__contact__mail__link(href='https://www.gmail.com' target='_blank')
+                  svg.home__contact__mail__icon(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                    path(d="M22 6L12 13L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  span.home__contact__mail__text=section.primary.mail
+                a.home__contact__phone__link(href=section.primary.whatsapp.url target='_blank')
+                  svg.home__contact__phone__icon(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(d="M21.9999 16.9201V19.9201C22.0011 20.1986 21.944 20.4743 21.8324 20.7294C21.7209 20.9846 21.5572 21.2137 21.352 21.402C21.1468 21.5902 20.9045 21.7336 20.6407 21.8228C20.3769 21.912 20.0973 21.9452 19.8199 21.9201C16.7428 21.5857 13.7869 20.5342 11.1899 18.8501C8.77376 17.3148 6.72527 15.2663 5.18993 12.8501C3.49991 10.2413 2.44818 7.27109 2.11993 4.1801C2.09494 3.90356 2.12781 3.62486 2.21643 3.36172C2.30506 3.09859 2.4475 2.85679 2.6347 2.65172C2.82189 2.44665 3.04974 2.28281 3.30372 2.17062C3.55771 2.05843 3.83227 2.00036 4.10993 2.0001H7.10993C7.59524 1.99532 8.06572 2.16718 8.43369 2.48363C8.80166 2.80008 9.04201 3.23954 9.10993 3.7201C9.23656 4.68016 9.47138 5.62282 9.80993 6.5301C9.94448 6.88802 9.9736 7.27701 9.89384 7.65098C9.81408 8.02494 9.6288 8.36821 9.35993 8.6401L8.08993 9.9101C9.51349 12.4136 11.5864 14.4865 14.0899 15.9101L15.3599 14.6401C15.6318 14.3712 15.9751 14.1859 16.3491 14.1062C16.723 14.0264 17.112 14.0556 17.4699 14.1901C18.3772 14.5286 19.3199 14.7635 20.2799 14.8901C20.7657 14.9586 21.2093 15.2033 21.5265 15.5776C21.8436 15.9519 22.0121 16.4297 21.9999 16.9201Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  span.home__contact__phone__text=section.primary.phone
               .home__contact__social
                 p.home__contact__social__name Cercas Humaya 2023
-                .home__contact__social_icons__wrapper
+                //.home__contact__social_icons__wrapper
                   svg.home__contact__twitter__icon
                   svg.home__contact__facebook__icon
                   svg.home__contact__instagram__icon
-              
-

@@ -1,0 +1,45 @@
+.home__hero {
+    height: 100vh;
+    width: 100%;
+}
+
+.home__hero__wrapper {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.home__hero__info {
+    width: 72rem;
+    text-align: center;
+    @extend %center;
+    flex-direction: column;
+}
+
+.home__hero__subtitle {
+    @extend %body-22;
+    max-width: 37.5rem;
+    color: $color-gray;
+}
+
+.home__hero__title {
+    @extend %title-75;
+    max-width: 37.5rem;
+    margin-bottom: 2rem;
+}
+
+.home__hero__cta {
+
+}
+
+.home__hero__media {
+    height: 83.2rem;
+    position: relative;
+    width: 56.4rem;
+}
+
+.home__hero__media__image {
+    @extend %cover;
+    object-fit: cover;
+}

@@ -1,0 +1,29 @@
+.home__services {
+    width: 100%;
+    padding: 0 5rem;
+    margin-bottom: 26rem;
+}
+
+.home__services__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.home__services__title {
+    @extend %title-50;
+    color: $color-scorpion;
+    margin-bottom: 6rem;
+}
+
+.home__services__name {
+    @extend %title-60;
+    color: $color-gray;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.home__services__name:hover {
+    color: $color-black;
+}
